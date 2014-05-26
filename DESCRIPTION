@@ -1,0 +1,19 @@
+Package: cboettigR
+Title: A collection of useful functions and utilities I commonly use
+Description: A collection of useful functions and utilities I commonly use.
+    Several scripts have been adapted from code snipptes provided by other
+    authors online, as indicated in the documentation.
+Version: 0.0-1
+License: CC0
+Author: Carl Boettiger
+Maintainer: Carl Boettiger, <cboettig@gmail.com>
+URL: https://github.com/cboettig/cboettigR
+BugReports: https://github.com/cboettig/cboettigR/issues
+VignetteBuilder: knitr
+Imports:
+    ggplot2,
+    grid
+Suggests:
+    knitr (>= 1.5),
+    httr,
+    testthat
