@@ -6,7 +6,7 @@ before_install:
   
 install:
   - echo 'options("repos"="http://cran.rstudio.com", encoding="UTF-8"); .libPaths(c(.libPaths(), "~/R"))' > ~/.Rprofile
-  - Rscript -e '.libPaths(c(.libPaths(), "~/R")); devtools::install("."); devtools::install_github("roxygen2")'
+  - Rscript -e '.libPaths(c(.libPaths(), "~/R")); devtools::install("."); devtools::install_github("devtools")'
 
 script: 
   - Rscript -e 'devtools::check(".")'
