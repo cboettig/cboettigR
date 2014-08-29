@@ -1,22 +1,17 @@
-# Sample .travis.yml for R projects from https://github.com/craigcitro/r-travis
-
-language: c
-
+t
+build_environment: Ubuntu 14.04
+ 
 before_install:
-  - curl -OL http://raw.github.com/craigcitro/r-travis/master/scripts/travis-tool.sh
-  - chmod 755 ./travis-tool.sh
-  - ./travis-tool.sh bootstrap
-
+  - add-apt-repository -y ppa:marutter/c2d4u && apt-get update -qq 
+  - apt-get install -y r-recommended r-cran-knitr r-cran-testthat r-cran-ggplot2 r-cran-grid
+  
 # install_aptget is quicker & more robust than install_deps
 # devtools (imports httr) & testthat are already installed as binaries...
 install:
-  - ./travis-tool.sh install_aptget r-cran-knitr 
-  - ./travis-tool.sh install_deps
+  - R CMD INSTALL .
 
-script: ./travis-tool.sh run_tests
-
-on_failure:
-  - ./travis-tool.sh dump_logs
+script: 
+  - R CMD check .
 
 
 env:
