@@ -2,15 +2,13 @@ build_environment: Ubuntu 14.04
  
 before_install:
   - sudo add-apt-repository -y ppa:marutter/c2d4u && sudo apt-get update -qq 
-  - sudo apt-get install -y r-recommended r-cran-knitr r-cran-testthat r-cran-ggplot2 
+  - sudo apt-get install -y r-recommended r-cran-knitr r-cran-testthat r-cran-ggplot2 r-cran-devtools 
   
-# install_aptget is quicker & more robust than install_deps
-# devtools (imports httr) & testthat are already installed as binaries...
 install:
-  - R CMD INSTALL .
+  - Rscript -e 'options(repos="http://cran.rstudio.com"); devtools::install(".")'
 
 script: 
-  - R CMD check .
+  - Rscript -e 'devtools::check(".")'
 
 
 env:
