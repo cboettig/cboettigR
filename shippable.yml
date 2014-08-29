@@ -9,6 +9,8 @@ install:
   - Rscript -e '.libPaths(c(.libPaths(), "~/R")); devtools::install("."); devtools::install_github("hadley/devtools")'
 
 script: 
+  - Rscript -e 'library("methods")'
+  - Rscript -e 'library("methods"); is(3.14, "numeric")'
   - Rscript -e 'devtools::check(".")'
 
 
