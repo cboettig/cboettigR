@@ -5,7 +5,7 @@ before_install:
   - sudo apt-get install -y r-recommended r-cran-knitr r-cran-testthat r-cran-ggplot2 r-cran-devtools
   
 install:
-  - echo 'options("repos"="http://cran.rstudio.com", encoding="UTF-8"); .libPaths(c(.libPaths(), "~/R"))' > ~/.Rprofile
+  - echo 'options("repos"="http://cran.rstudio.com", encoding="UTF-8", "github.user"="rstudio"); .libPaths(c(.libPaths(), "~/R"))' > ~/.Rprofile
   - Rscript -e '.libPaths(c(.libPaths(), "~/R")); devtools::install("."); devtools::install_github("devtools")'
 
 script: 
@@ -14,6 +14,7 @@ script:
 
 env:
  global:
+   - USERNAME = "cboettig"
    - R_LIBS_USER="~/R"
    - R_BUILD_ARGS="--no-manual"
    - R_CHECK_ARGS="--as-cran --no-manual" # PDF Manual needs more recent tex, slow and unnecessary
