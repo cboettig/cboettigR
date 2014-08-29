@@ -6,7 +6,7 @@ before_install:
   
 install:
   - echo 'options("repos"="http://cran.rstudio.com", encoding="UTF-8", "github.user"="rstudio"); .libPaths(c(.libPaths(), "~/R"))' > ~/.Rprofile
-  - Rscript -e '.libPaths(c(.libPaths(), "~/R")); devtools::install("."); devtools::install_github("devtools")'
+  - Rscript -e '.libPaths(c(.libPaths(), "~/R")); devtools::install("."); devtools::install_github("hadley/devtools")'
 
 script: 
   - Rscript -e 'devtools::check(".")'
