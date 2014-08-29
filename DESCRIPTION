@@ -12,7 +12,8 @@ BugReports: https://github.com/cboettig/cboettigR/issues
 VignetteBuilder: knitr
 Imports:
     ggplot2,
-    grid
+    grid,
+    methods
 Suggests:
     knitr (>= 1.5),
     httr,
